@@ -1,0 +1,43 @@
+{
+  "name": "angjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf ./dist ENOENT",
+    "dev": "webpack-dev-server --config ./webpack/dev.config.js",
+    "build": "rimraf ./dist ENOENT && webpack --config ./webpack/build.config.js --mode development",
+    "build-prod": "rimraf ./dist ENOENT && webpack --config ./webpack/build.config.js --mode production"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.7.9",
+    "angular-route": "^1.7.9",
+    "bootstrap": "^4.5.1",
+    "jquery": "^3.4.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "autoprefixer": "^9.7.6",
+    "babel-loader": "^8.0.6",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.4.1",
+    "expose-loader": "^0.7.5",
+    "file-loader": "^5.0.2",
+    "html-webpack-plugin": "^4.3.0",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "ng-cache-loader": "0.0.26",
+    "postcss-loader": "^3.0.0",
+    "rimraf": "^3.0.0",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.1.2",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
+  }
+}
