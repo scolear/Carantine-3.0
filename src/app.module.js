@@ -11,6 +11,7 @@ require('./common/header/cr-header.component');
 // Dashboard modules
 require('./dashboard/dashboard.component');
 require('./dashboard/state-display/state-display.component');
+require('./dashboard/logs-view/logs-view.component');
 
 
 // Additional pages
