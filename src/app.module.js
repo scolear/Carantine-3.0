@@ -10,6 +10,8 @@ require('./common/header/cr-header.component');
 
 // Dashboard modules
 require('./dashboard/dashboard.component');
+require('./dashboard/state-display/state-display.component');
+
 
 // Additional pages
 require('./settings/settings.component');
