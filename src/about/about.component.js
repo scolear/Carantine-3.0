@@ -1,5 +1,5 @@
-import template from './app.component.html';
-import './app.component.less';
+import template from './about.component.html';
+import './about.component.less';
 
 const component = function() {
 
@@ -15,4 +15,4 @@ const component = function() {
     }
 }
 
-angular.module('app').component('appRoot',component());
+angular.module('app').component('about', component());
