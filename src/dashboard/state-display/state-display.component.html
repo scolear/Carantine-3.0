@@ -1,18 +1,32 @@
-<div class="container">
-    <table class="table table-dark">
+<div class="container-fluid">
+    <table class="table state-display table-sm">
         <tr>
-            <th scope="row">State</th>
-            <td>{{$ctrl.state}}</td>
+            <th scope="col">S1</th>
+            <th scope="col">S2</th>
+            <th scope="col">S3</th>
         </tr>
 
         <tr>
-            <th scope="row">Motor 1</th>
-            <td>{{$ctrl.motor_1}}</td>
+            <td>{{$ctrl.sensor_1}}</td>
+            <td>{{$ctrl.sensor_2}}</td>
+            <td>{{$ctrl.sensor_3}}</td>
         </tr>
 
         <tr>
-            <th scope="row">Motor 2</th>
-            <td>{{$ctrl.motor_2}}</td>
+            <th scope="col" colspan = "3">STATE</th>
+        </tr>
+        <tr>
+            <td colspan = "3">{{$ctrl.state}}</td>
+        </tr>
+        <tr>
+            <th scope="col">Motor 1</th>
+            <th></th>
+            <th scope="col">Motor 2</th>
+        </tr>
+        <tr>
+            <td> {{$ctrl.motor_1}} </td>
+            <td></td>
+            <td> {{$ctrl.motor_2}} </td>
         </tr>
     </table>
 </div>

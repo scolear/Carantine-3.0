@@ -1,6 +1,7 @@
 (function() {
     angular.module('app').config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
         $routeProvider
+        .when('/', { template: '<dashboard></dashboard>'})
         .when('/dashboard', { template: '<dashboard></dashboard>'})
         .when('/settings', { template: '<settings-page>'})
         .when('/about', { template: '<about>'})
