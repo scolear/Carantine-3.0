@@ -1,4 +1,4 @@
-const app = angular.module('app',[require('angular-route')]);
+const app = angular.module('app',['ngRoute']);
 
 require('./app.component');
 

@@ -6,7 +6,6 @@
         .when('/settings', { template: '<settings-page>'})
         .when('/about', { template: '<about>'})
 
-
         $locationProvider
         .html5Mode({
             enabled: true,
