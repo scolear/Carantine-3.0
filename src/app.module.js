@@ -5,8 +5,9 @@ require('./app.component');
 // Routing
 require('./app.route');
 
-// Header module
+// Common modules
 require('./common/header/cr-header.component');
+require('./common/login/login.component');
 
 // Dashboard modules
 require('./dashboard/dashboard.component');
@@ -14,7 +15,6 @@ require('./dashboard/state-display/state-display.component');
 require('./dashboard/logs-view/logs-view.component');
 require('./dashboard/live-view/live-view.component');
 require('./dashboard/controls/controls.component');
-
 
 
 // Additional pages

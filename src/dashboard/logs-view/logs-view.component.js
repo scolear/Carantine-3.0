@@ -23,6 +23,7 @@ const component = function() {
                     ctrl.logs = res.data;
                 },
                 function error(res) {
+                    console.log(res); 
                 }
             );
         };
