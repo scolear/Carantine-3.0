@@ -11,13 +11,14 @@ const component = function() {
             command: "undefined"
         };
 
-        const sendRequest = function (data) {
+        const postCommand = function (data) {
             $http.post('http://localhost:1880/command/', data)
             .then(
                 function success(res) {
                     console.log(data.command + " command sent successfully.");
                 },
                 function error(res) {
+                    window.alert("Command request failed");
                     console.log(data.command + " command request failed.");
                 }
             );
@@ -25,32 +26,32 @@ const component = function() {
 
         ctrl.forward = function () {
             commandData.command = "forward";
-            sendRequest(commandData);
+            postCommand(commandData);
         };
 
         ctrl.backward = function () {
             commandData.command = "backward";
-            sendRequest(commandData);
+            postCommand(commandData);
         };
 
         ctrl.left = function () {
             commandData.command = "left";
-            sendRequest(commandData);
+            postCommand(commandData);
         };
 
         ctrl.right = function () {
             commandData.command = "right";
-            sendRequest(commandData);
+            postCommand(commandData);
         };
 
         ctrl.allStop = function () {
             commandData.command = "stop";
-            sendRequest(commandData);
+            postCommand(commandData);
         };
 
         ctrl.auto = function () {
             commandData.command = "auto";
-            sendRequest(commandData);
+            postCommand(commandData);
         };
 
     }];

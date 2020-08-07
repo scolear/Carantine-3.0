@@ -13,16 +13,31 @@
             </tr>
         </thead>
         <tbody>
-            <!-- TODO: ng-repeat the logs -->
-            <tr>
-                <td>08.05T11:12</td>
-                <td>CMD:FWD</td>
-                <td>IDLE</td>
-                <td>0</td>
-                <td>0</td>
-                <td>113</td>
-                <td>23</td>
-                <td>59</td>
+            <tr ng-repeat="log in $ctrl.logs">
+                <td>
+                    {{log.time}}
+                </td>
+                <td>
+                    {{log.event}}
+                </td>
+                <td>
+                    {{log.state}}
+                </td>
+                <td>
+                    {{log.M1}}
+                </td>
+                <td>
+                    {{log.M2}}
+                </td>
+                <td>
+                    {{log.S1}}
+                </td>
+                <td>
+                    {{log.S2}}
+                </td>
+                <td>
+                    {{log.S3}}
+                </td>
             </tr>
         </tbody>
     </table>
