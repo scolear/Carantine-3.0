@@ -3,7 +3,7 @@ import './login.component.less';
 
 const component = function() {
 
-    const controller = ['$http' , function($http) {
+    const controller = ['AuthSvc', '$http', '$sessionStorage', function(AuthSvc, $http, $sessionStorage) {
 
         const ctrl = this;
 
@@ -12,27 +12,20 @@ const component = function() {
             password: ""
         };
 
-        ctrl.submitLogin = function () 
+        ctrl.submitLogin = () =>
         {
-            if (ctrl.user.email != "" && ctrl.user.password != "") {
-                postCommand(ctrl.user);
-            } 
+            AuthSvc.login(ctrl.user.email, ctrl.user.password)
+            .then(response => {
+                ctrl.user.email = "";
+                ctrl.user.password = "";
+                window.alert("Login success");
+            }, error => {
+                window.alert("Unsuccessful");
+
+            });
         };
 
-        const postCommand = function (userInfo) 
-        {
-            userInfo.returnSecureToken = "true";
-
-            $http.post('https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyDg6ZazQiE--1GenRyZHwazpj-2OnrG_9o', userInfo)
-            .then(
-                function success(res) {
-                    console.log("Login successful");
-                },
-                function error(res) {
-                    console.log("Login failed.");
-                }
-            );
-        };
+        
 
     }];
 

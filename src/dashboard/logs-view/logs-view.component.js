@@ -13,6 +13,7 @@ const component = function() {
 
         setInterval(function() {
             requestLogs();
+            
         }, 5000);
 
 

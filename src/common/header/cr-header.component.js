@@ -7,6 +7,8 @@ const component = function() {
 
         const ctrl = this;
 
+        ctrl.showDropdown = false;
+
     }];
 
     return {
