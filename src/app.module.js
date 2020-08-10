@@ -6,8 +6,8 @@ require('./app.component');
 require('./app.route');
 
 // Common modules
-require('./common/header/cr-header.component');
 require('./common/login/login.component');
+require('./common/header/cr-header.component');
 
 // Dashboard modules
 require('./dashboard/dashboard.component');

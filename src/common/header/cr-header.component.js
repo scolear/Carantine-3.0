@@ -1,4 +1,5 @@
-import template from './cr-header.component.html'
+import template from './cr-header.component.html';
+import './cr-header.component.less';
 
 const component = function() {
 
