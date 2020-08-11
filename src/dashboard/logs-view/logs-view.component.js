@@ -10,18 +10,12 @@ const component = function() {
 
         ctrl.logs = [];
 
-
-        setInterval(function() {
-            requestLogs();
-            
-        }, 5000);
-
-
-        const requestLogs = function () {
+        ctrl.requestLogs = function () {
             $http.get('http://localhost:1880/log_update/')
             .then(
                 function success(res) {
                     ctrl.logs = res.data;
+                    ctrl.grid.setDataSource(ctrl.logs);
                 },
                 function error(res) {
                     console.log(res); 
@@ -29,7 +23,56 @@ const component = function() {
             );
         };
 
+        ctrl.requestLogs();
 
+        ctrl.gridOptions = {
+            columns: [
+                {
+                    field: "time",
+                    title: "Time",
+                    width: "115px"
+                },
+                {
+                    field: "event",
+                    title: "Event",
+                    width: "105px"
+                },
+                {
+                    field: "state",
+                    title: "State",
+                    width: "60px"
+                },
+                {
+                    field: "M1",
+                    title: "M1",
+                    width: "40px"
+                },
+                {
+                    field: "M2",
+                    title: "M2",
+                    width: "40px"
+                },
+                {
+                    field: "S1",
+                    title: "S1",
+                    width: "50px"
+                },
+                {
+                    field: "S2",
+                    title: "S2",
+                    width: "50px"
+                },
+                {
+                    field: "S3",
+                    title: "S3",
+                    width: "50px"
+                },
+            ]
+        };
+
+        setInterval(function() {
+            ctrl.requestLogs();
+        }, 5000);
 
     }];
 

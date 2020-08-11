@@ -1,4 +1,4 @@
-const app = angular.module('app',['ngRoute', 'swxSessionStorage']);
+const app = angular.module('app',['ngRoute', 'swxSessionStorage', 'kendo.directives']);
 
 require('./app.component');
 

@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
+    "@progress/kendo-ui": "^2020.2.617",
     "angular": "^1.7.9",
     "angular-route": "^1.8.0",
     "bootstrap": "^4.5.1",

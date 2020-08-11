@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <table class="table state-display table-sm">
         <tr>
             <th scope="col">S1</th>
@@ -29,4 +29,9 @@
             <td> {{$ctrl.motor_2}} </td>
         </tr>
     </table>
+</div> -->
+<div class="container-fluid">
+    <div kendo-arcgauge="$ctrl.motorGauge1" k-options="$ctrl.motorGauge1Options" class="gauge" id="motor_1_gauge"></div>
+    <div kendo-chart="$ctrl.distance" k-options="$ctrl.distanceOptions" class="gauge" id="distance_gauge" ></div>
+    <div kendo-arcgauge="$ctrl.motorGauge2" k-options="$ctrl.motorGauge2Options" class="gauge" id="motor_2_gauge"></div>
 </div>
