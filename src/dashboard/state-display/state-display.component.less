@@ -1,20 +1,41 @@
-.state-display {
-    th {
-        margin-bottom: 0.1rem;
-        padding-bottom: 0;
-        width: 33.3%;
-    }
+
+@pull-in: 10%;
+
+.gauge-wrapper {
+    display: grid;
+    align-content: stretch;
 }
 
 .gauge {
-    width: 35%;
-    display: inline-block;
+    grid-column: 1;
+    grid-row: 1;
 }
 
 #motor_1_gauge {
-    margin-right: -30px;
+    justify-self: start;
+    align-self: stretch;
+    z-index: 3;
+
+    margin-left: @pull-in;
+} 
+
+#distance_gauge {
+    place-self: center;
+    z-index: 1;
+
 }
 
 #motor_2_gauge {
-    margin-left: -30px;
+    justify-self: end;
+    align-self: stretch;
+    z-index: 2;
+
+    margin-right: @pull-in;
+}
+
+#state_gauge {
+    justify-self: center;
+    align-self: start;
+    z-index: 3;
+    font-size: 1.5rem;
 }

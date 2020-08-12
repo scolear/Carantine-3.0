@@ -8,12 +8,18 @@ const component = function() {
 
         // TODO: Get this information from the server:
 
-        ctrl.state = "IDLE";
-        ctrl.sensor_1 = 123;
-        ctrl.sensor_2 = 456;
-        ctrl.sensor_3 = 789;
-        ctrl.motor_1 = 0;
-        ctrl.motor_2 = 0;
+        ctrl.state = "LT";
+
+        ctrl.sensor_1 = 15;
+        ctrl.sensor_2 = 122;
+        ctrl.sensor_3 = 30;
+
+        ctrl.motor_1 = 3;
+        ctrl.motor_2 = 5;
+
+        const motorSteps = 10;
+        const warningDistance = 40;
+        const dangerDistance = 20;
 
         ctrl.distanceOptions = {
             title: {
@@ -29,16 +35,24 @@ const component = function() {
             },
             series: [{
                 name: "Distance",
-                data: [116, 165, 0, 0, 0, 120]
+                data: [ctrl.sensor_2, ctrl.sensor_3, 0, 0, 0, ctrl.sensor_1],
+                color: function(distance) {
+                    if (distance.value < dangerDistance) {
+                        return "red";
+                    } else if (distance.value < warningDistance) {
+                        return "yellow";
+                    }
+                }
             }],
             categoryAxis: {
-                categories: ["S2", "S3", "", "", "", "S1"]
+                categories: ["S2", "S3", "", "", "", "S1"],
+                visible: false
             },
             valueAxis: {
                 labels: {
                     format: "{0} cm"
                 },
-                  max: 200
+                  max: 100
             },
             tooltip: {
                 visible: true,
@@ -51,17 +65,17 @@ const component = function() {
             seriesDefaults: {
                 type: "arcGauge"
             },
-            value: 1,
+            value: ctrl.motor_1,
             scale: {
-                startAngle: -90,
-                endAngle: 90,
+                startAngle: -75,
+                endAngle: 45,
                 rangeLineCap: "butt",
                 rangeSize: 20,
                 labels: {
                     visible: true
                 },
-                max: 10
-            },
+                max: motorSteps
+            }
             
         };
 
@@ -70,16 +84,16 @@ const component = function() {
             seriesDefaults: {
                 type: "arcGauge"
             },
-            value: 1,
+            value: ctrl.motor_2,
             scale: {
-                startAngle: 90,
-                endAngle: 270,
+                startAngle: 135,
+                endAngle: 255,
                 rangeLineCap: "butt",
                 rangeSize: 20,
                 labels: {
                     visible: true
                 },
-                max: 10,
+                max: motorSteps,
                 reverse: true
             },
             
