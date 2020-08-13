@@ -5,11 +5,16 @@ angular.module('app')
 
         _this.isAuthenticated = false;
 
+        _this.user = {
+            email: "",
+            password: ""
+        };
+
         _this.login = (userName, password) => {
             // TODO: 
             // Set http interceptor settings and tokens
 
-            let user = {
+            user = {
                 email: userName,
                 password: password
             };
@@ -35,10 +40,16 @@ angular.module('app')
                         reject();
                     }
                 );
-
             });
+        };
 
-
+        _this.logout = () => {
+            $sessionStorage.remove('idToken');
+            _this.isAuthenticated = false;
+            _this.user = {
+                email: "",
+                password: ""
+            };
         };
 
 

@@ -3,7 +3,7 @@ import './login.component.less';
 
 const component = function() {
 
-    const controller = ['AuthSvc', '$http', '$sessionStorage', function(AuthSvc, $http, $sessionStorage) {
+    const controller = ['AuthSvc', '$http', '$sessionStorage', '$scope', function(AuthSvc, $http, $sessionStorage, $scope) {
 
         const ctrl = this;
 
@@ -12,20 +12,33 @@ const component = function() {
             password: ""
         };
 
+        ctrl.isAuthenticated = AuthSvc.isAuthenticated;
+
         ctrl.submitLogin = () =>
         {
             AuthSvc.login(ctrl.user.email, ctrl.user.password)
             .then(response => {
-                ctrl.user.email = "";
                 ctrl.user.password = "";
-                window.alert("Login success");
+                ctrl.isAuthenticated = AuthSvc.isAuthenticated;
             }, error => {
-                window.alert("Unsuccessful");
-
+                window.alert("Unsuccessful login");
             });
         };
 
-        
+        ctrl.submitLogout = () => 
+        {
+            AuthSvc.logout();
+            ctrl.isAuthenticated = AuthSvc.isAuthenticated;
+            ctrl.user = {
+                email: "", 
+                password: ""
+            };
+            $scope.form.$setPristine();
+            $scope.form.$setUntouched();
+            $scope.form.$setValidity();
+            $scope.form.$error = {};
+            $scope.apply();
+        };
 
     }];
 
