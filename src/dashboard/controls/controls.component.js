@@ -3,9 +3,18 @@ import './controls.component.less';
 
 const component = function() {
 
-    const controller = ['$http', '$scope', function($http, $scope) {
+    const controller = ['AuthSvc', '$http', '$scope', function(AuthSvc, $http, $scope) {
         
         const ctrl = this;
+
+        $scope.$watch(
+            function () {     
+                return AuthSvc.isAuthenticated; }, 
+            function (data) {
+                ctrl.isAuthenticated = data;
+                if (!ctrl.isAuthenticated) {ctrl.allStop();};
+             }, true
+        );
         
         let commandData = {
             command: "undefined"
