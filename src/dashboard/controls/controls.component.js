@@ -3,7 +3,7 @@ import './controls.component.less';
 
 const component = function() {
 
-    const controller = ['$http', function($http) {
+    const controller = ['$http', '$scope', function($http, $scope) {
         
         const ctrl = this;
         
@@ -52,6 +52,29 @@ const component = function() {
         ctrl.auto = function () {
             commandData.command = "auto";
             postCommand(commandData);
+        };
+
+        $scope.keypress = ($event) => {
+            switch($event.keyCode) {
+                case 32: 
+                    ctrl.allStop();
+                    break;
+                case 37:
+                    ctrl.left();
+                    break;
+                case 38:
+                    ctrl.forward();
+                    break;
+                case 39:
+                    ctrl.right();
+                    break;
+                case 40:
+                    ctrl.backward();
+                    break;
+                case 65:
+                    ctrl.auto();
+                    break;
+            }
         };
 
     }];
