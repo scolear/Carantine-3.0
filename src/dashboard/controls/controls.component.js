@@ -7,11 +7,14 @@ const component = function() {
         
         const ctrl = this;
 
+        // Watch authentication status changes:
         $scope.$watch(
             function () {     
                 return AuthSvc.isAuthenticated; }, 
             function (data) {
                 ctrl.isAuthenticated = data;
+
+                // Stop motors on user logout:
                 if (AuthSvc.sessionEnded) {ctrl.allStop();};
              }, true
         );
