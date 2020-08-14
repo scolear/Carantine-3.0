@@ -4,6 +4,7 @@ angular.module('app')
         let _this = this;
 
         _this.isAuthenticated = false;
+        _this.sessionEnded = false;
 
         _this.user = {
             email: "",
@@ -30,6 +31,7 @@ angular.module('app')
                         $sessionStorage.put('idToken', res.data.idToken);
 
                         _this.isAuthenticated = true;
+                        _this.sessionEnded = false;
 
                         console.log("Login successful");
                         resolve(true);
@@ -46,6 +48,7 @@ angular.module('app')
         _this.logout = () => {
             $sessionStorage.remove('idToken');
             _this.isAuthenticated = false;
+            _this.sessionEnded = true;
             _this.user = {
                 email: "",
                 password: ""

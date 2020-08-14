@@ -12,7 +12,7 @@ const component = function() {
                 return AuthSvc.isAuthenticated; }, 
             function (data) {
                 ctrl.isAuthenticated = data;
-                if (!ctrl.isAuthenticated) {ctrl.allStop();};
+                if (AuthSvc.sessionEnded) {ctrl.allStop();};
              }, true
         );
         
