@@ -10,7 +10,7 @@
         <a href="/about" class="nav-item nav-link">About</a>
         <div class="nav-item dropdown" ng-class="{show: $ctrl.showDropdown}">
             <button class="btn btn-secondary dropdown-toggle nav-link" type="button" data-toggle="dropdown" ng-click="$ctrl.showDropdown = !$ctrl.showDropdown">
-                Sign in
+                {{$ctrl.signInButtonText}}
             </button>
             <div class="dropdown-menu dropdown-menu-right" ng-class="{show: $ctrl.showDropdown}">
                 <login></login>
