@@ -18,7 +18,6 @@ const component = function() {
                     ctrl.grid.setDataSource(ctrl.logs);
                 },
                 function error(res) {
-                    console.log(res); 
                 }
             );
         };
@@ -70,7 +69,7 @@ const component = function() {
             ]
         };
 
-        setInterval(function() {
+        ctrl.timer = setInterval(function() {
             ctrl.requestLogs();
         }, 5000);
 

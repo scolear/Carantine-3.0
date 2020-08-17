@@ -36,13 +36,13 @@ const component = function() {
             );
         };
 
-        ctrl.forward = function () {
-            commandData.command = "forward";
+        ctrl.up = function () {
+            commandData.command = "up";
             postCommand(commandData);
         };
 
-        ctrl.backward = function () {
-            commandData.command = "backward";
+        ctrl.down = function () {
+            commandData.command = "down";
             postCommand(commandData);
         };
 
@@ -75,13 +75,13 @@ const component = function() {
                     ctrl.left();
                     break;
                 case 38:
-                    ctrl.forward();
+                    ctrl.up();
                     break;
                 case 39:
                     ctrl.right();
                     break;
                 case 40:
-                    ctrl.backward();
+                    ctrl.down();
                     break;
                 case 65:
                     ctrl.auto();
