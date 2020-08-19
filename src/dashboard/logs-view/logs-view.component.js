@@ -73,6 +73,11 @@ const component = function() {
             ctrl.requestLogs();
         }, 5000);
 
+        ctrl.$onDestroy = () => {
+            console.log("destroy");
+            clearInterval(ctrl.timer);
+        };
+
     }];
 
     return {
